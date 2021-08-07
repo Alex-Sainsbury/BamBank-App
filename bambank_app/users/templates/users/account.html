@@ -1,0 +1,25 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-3">Update Account Info</legend>
+                {{ user_form|crispy }}
+            </fieldset>
+            <div class="form-group mt-2">
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+            <div>
+                <h1 class="border-top mt-5">Balance: {{ user.account.balance|floatformat:2 }} Bambeuros</h1>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
