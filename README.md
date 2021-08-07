@@ -15,6 +15,12 @@ Django Web Application for Bambank
 * open http://localhost:8000/
 
 
+## Assumptions
+* All dates are in UTC
+* Accounts have their own model to accomodate for the future task of having multiple accounts per user
+* Each user has a unique username
+
+
 ## TODO
 
 * Prevent sending more Bambeuros than user has available
